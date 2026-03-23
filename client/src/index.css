@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -7,8 +8,6 @@
  * - Extreme clarity through whitespace
  * - Technical, professional aesthetic
  */
-
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inter:wght@400;500;600;700&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -52,75 +51,75 @@
 }
 
 :root {
-  /* Minimalist Cybersecurity Color Palette */
+  /* Minimalist Cybersecurity Color Palette - Dark Theme */
   --primary: #00d9ff; /* Neon cyan for accents */
-  --primary-foreground: #ffffff;
+  --primary-foreground: #0a0e27;
   --sidebar-primary: #00d9ff;
-  --sidebar-primary-foreground: #ffffff;
+  --sidebar-primary-foreground: #0a0e27;
   --chart-1: #00d9ff;
   --chart-2: #0099cc;
   --chart-3: #006699;
   --chart-4: #003366;
   --chart-5: #001a33;
   --radius: 0.5rem; /* Smaller radius for technical feel */
-  --background: #ffffff; /* Pure white */
-  --foreground: #1a1a1a; /* Deep charcoal */
-  --card: #ffffff;
-  --card-foreground: #1a1a1a;
-  --popover: #ffffff;
-  --popover-foreground: #1a1a1a;
-  --secondary: #f5f5f5; /* Light gray */
-  --secondary-foreground: #333333;
-  --muted: #e0e0e0; /* Medium gray */
-  --muted-foreground: #666666;
+  --background: #0a0e27; /* Deep dark blue-black */
+  --foreground: #e0e6ff; /* Light blue-white */
+  --card: #1a1f3a; /* Dark card background */
+  --card-foreground: #e0e6ff;
+  --popover: #1a1f3a;
+  --popover-foreground: #e0e6ff;
+  --secondary: #16213e; /* Slightly lighter dark */
+  --secondary-foreground: #b0b8d4;
+  --muted: #2d3561; /* Medium dark */
+  --muted-foreground: #8892b0;
   --accent: #00d9ff; /* Neon cyan */
-  --accent-foreground: #1a1a1a;
+  --accent-foreground: #0a0e27;
   --destructive: #ff4444;
   --destructive-foreground: #ffffff;
-  --border: #e0e0e0;
-  --input: #f5f5f5;
+  --border: #2d3561;
+  --input: #16213e;
   --ring: #00d9ff;
-  --sidebar: #ffffff;
-  --sidebar-foreground: #1a1a1a;
+  --sidebar: #1a1f3a;
+  --sidebar-foreground: #e0e6ff;
   --sidebar-accent: #00d9ff;
-  --sidebar-accent-foreground: #1a1a1a;
-  --sidebar-border: #e0e0e0;
+  --sidebar-accent-foreground: #0a0e27;
+  --sidebar-border: #2d3561;
   --sidebar-ring: #00d9ff;
 }
 
 .dark {
-  /* Dark mode not used for this design */
+  /* Dark theme is now the default */
   --primary: #00d9ff;
-  --primary-foreground: #ffffff;
+  --primary-foreground: #0a0e27;
   --sidebar-primary: #00d9ff;
-  --sidebar-primary-foreground: #ffffff;
-  --background: #ffffff;
-  --foreground: #1a1a1a;
-  --card: #ffffff;
-  --card-foreground: #1a1a1a;
-  --popover: #ffffff;
-  --popover-foreground: #1a1a1a;
-  --secondary: #f5f5f5;
-  --secondary-foreground: #333333;
-  --muted: #e0e0e0;
-  --muted-foreground: #666666;
+  --sidebar-primary-foreground: #0a0e27;
+  --background: #0a0e27;
+  --foreground: #e0e6ff;
+  --card: #1a1f3a;
+  --card-foreground: #e0e6ff;
+  --popover: #1a1f3a;
+  --popover-foreground: #e0e6ff;
+  --secondary: #16213e;
+  --secondary-foreground: #b0b8d4;
+  --muted: #2d3561;
+  --muted-foreground: #8892b0;
   --accent: #00d9ff;
-  --accent-foreground: #1a1a1a;
+  --accent-foreground: #0a0e27;
   --destructive: #ff4444;
   --destructive-foreground: #ffffff;
-  --border: #e0e0e0;
-  --input: #f5f5f5;
+  --border: #2d3561;
+  --input: #16213e;
   --ring: #00d9ff;
   --chart-1: #00d9ff;
   --chart-2: #0099cc;
   --chart-3: #006699;
   --chart-4: #003366;
   --chart-5: #001a33;
-  --sidebar: #ffffff;
-  --sidebar-foreground: #1a1a1a;
+  --sidebar: #1a1f3a;
+  --sidebar-foreground: #e0e6ff;
   --sidebar-accent: #00d9ff;
-  --sidebar-accent-foreground: #1a1a1a;
-  --sidebar-border: #e0e0e0;
+  --sidebar-accent-foreground: #0a0e27;
+  --sidebar-border: #2d3561;
   --sidebar-ring: #00d9ff;
 }
 
@@ -197,14 +196,14 @@
   }
   
   .card-minimal {
-    @apply bg-white border border-gray-200 rounded-sm p-6 transition-all duration-300 hover:shadow-lg hover:border-cyan-300;
+    @apply bg-card border border-border rounded-sm p-6 transition-all duration-300 hover:shadow-lg hover:border-cyan-400;
   }
   
   .skill-bar {
-    @apply h-1 bg-gray-200 rounded-full overflow-hidden;
+    @apply h-1 bg-muted rounded-full overflow-hidden;
   }
   .skill-bar-fill {
-    @apply h-full bg-gradient-to-r from-cyan-400 to-cyan-600 transition-all duration-1000;
+    @apply h-full bg-gradient-to-r from-cyan-400 to-cyan-500 transition-all duration-1000;
   }
 
   .flex {
