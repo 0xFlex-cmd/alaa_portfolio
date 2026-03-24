@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, ExternalLink, Download } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, ExternalLink, Download, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Shield3D } from '@/components/Shield3D';
@@ -273,12 +273,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-card border-b border-border">
+      <nav className="sticky top-0 z-50 bg-card/80 border-b border-border backdrop-blur-md">
         <div className="container flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-cyan-400">
               <img 
-                src="/alaa_portfolio/profile.png" 
+                src="/alaa_portfolio/profile_new.jpg" 
                 alt="Alaa Atef" 
                 className="w-full h-full object-cover"
               />
@@ -296,42 +296,78 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section - Full Screen */}
-      <section className="relative overflow-hidden min-h-[calc(100vh-64px)] flex items-center justify-center border-b border-border">
-        <div className="grid md:grid-cols-2 gap-12 container items-center py-12 md:py-0">
-          {/* Left side - Text */}
-          <div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up">
-              Alaa Atef Elsayed Ahmed
+      {/* Hero Section - Full Screen Height */}
+      <section className="relative min-h-[calc(100vh-64px)] flex items-center overflow-hidden bg-gradient-to-br from-[#0a0e27] via-[#16213e] to-[#0a0e27]">
+        {/* Decorative elements in corners */}
+        <div className="absolute top-10 left-10 w-20 h-20 border-t-2 border-l-2 border-cyan-400/30 opacity-50"></div>
+        <div className="absolute bottom-10 right-10 w-20 h-20 border-b-2 border-r-2 border-cyan-400/30 opacity-50"></div>
+        <div className="absolute top-1/4 right-10 w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-1/4 left-10 w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+
+        <div className="container grid md:grid-cols-2 gap-12 items-center py-12">
+          {/* Left side - Text (Larger and clearer) */}
+          <div className="z-10">
+            <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in-up tracking-tighter">
+              Alaa Atef
             </h1>
-            <h2 className="text-3xl md:text-4xl font-bold text-cyan-400 mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+            <h2 className="text-4xl md:text-5xl font-bold text-cyan-400 mb-8 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
               Cybersecurity SOC Analyst
             </h2>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              Hands-on cybersecurity professional specializing in threat intelligence, incident response, and digital forensics. Currently working at THE WHITEGUARD with expertise in SIEM operations, detection engineering, and proactive defense strategies.
+            <p className="text-xl md:text-2xl text-muted-foreground mb-10 leading-relaxed max-w-2xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+              Hands-on cybersecurity professional specializing in threat intelligence, incident response, and digital forensics. Currently working at <span className="text-cyan-400 font-bold">THE WHITEGUARD</span>.
             </p>
-            <div className="flex gap-4 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+            <div className="flex flex-wrap gap-6 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
               <Button 
-                className="bg-cyan-600 hover:bg-cyan-700 text-white"
+                className="bg-cyan-600 hover:bg-cyan-700 text-white text-lg px-10 py-7 h-auto rounded-none border-b-4 border-cyan-800 active:border-b-0 active:translate-y-1 transition-all"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Get In Touch
               </Button>
               <Button 
                 variant="outline"
-                className="border-cyan-400 text-cyan-400 hover:bg-cyan-400/10"
+                className="border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 text-lg px-10 py-7 h-auto rounded-none transition-all"
                 onClick={() => setShowCVModal(true)}
               >
-                <Download className="w-4 h-4 mr-2" />
+                <Download className="w-5 h-5 mr-3" />
                 View CV
               </Button>
             </div>
           </div>
 
-          {/* Right side - 3D Shield */}
-          <div className="hidden md:block h-96 bg-card rounded-sm border border-border p-4">
-            <Shield3D />
+          {/* Right side - Protruding Image with Effects */}
+          <div className="relative flex justify-center items-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+            {/* Animated background circles */}
+            <div className="absolute w-[450px] h-[450px] border border-cyan-400/20 rounded-full animate-spin-slow"></div>
+            <div className="absolute w-[500px] h-[500px] border border-cyan-400/10 rounded-full animate-spin-slow" style={{ animationDirection: 'reverse', animationDuration: '20s' }}></div>
+            
+            {/* Glow effect */}
+            <div className="absolute w-80 h-80 bg-cyan-400/20 rounded-full blur-[100px]"></div>
+
+            {/* Image Container with Protruding Effect */}
+            <div className="relative w-80 h-80 md:w-[450px] md:h-[450px]">
+              {/* The Circle Frame */}
+              <div className="absolute inset-0 rounded-full border-8 border-cyan-400/30 overflow-hidden shadow-[0_0_50px_rgba(0,217,255,0.3)]">
+                {/* Background inside circle */}
+                <div className="absolute inset-0 bg-gradient-to-b from-cyan-900/20 to-transparent"></div>
+              </div>
+              
+              {/* The Image (Protruding) */}
+              <img 
+                src="/alaa_portfolio/profile_new.jpg" 
+                alt="Alaa Atef" 
+                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[110%] max-w-none h-auto object-cover z-20 drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
+                style={{ 
+                  maskImage: 'radial-gradient(circle at center 60%, black 60%, transparent 100%)',
+                  WebkitMaskImage: 'radial-gradient(circle at center 60%, black 60%, transparent 100%)'
+                }}
+              />
+            </div>
           </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-cyan-400/50">
+          <ChevronDown size={32} />
         </div>
       </section>
 
@@ -528,38 +564,25 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {skillCategories.map((category, catIndex) => (
               <div key={catIndex} className="card-minimal">
-                <h3 className="font-mono text-cyan-400 font-bold text-sm mb-6">{category.title}</h3>
-                <div className="space-y-4">
-                  {category.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex}>
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-sm font-medium text-foreground">{skill}</span>
-                        <span className="text-xs text-muted-foreground">Expert</span>
-                      </div>
-                      <div className="skill-bar">
-                        <div 
-                          className="skill-bar-fill"
-                          style={{
-                            width: visibleSkills.includes(catIndex * 3 + skillIndex) ? '90%' : '0%',
-                            transitionDelay: `${(catIndex * 3 + skillIndex) * 100}ms`
-                          }}
-                        />
-                      </div>
-                    </div>
+                <h3 className="text-lg font-bold mb-6 font-mono text-cyan-400">{category.title}</h3>
+                <div className="flex flex-wrap gap-3">
+                  {category.skills.map((skill, i) => (
+                    <span key={i} className="bg-secondary text-secondary-foreground px-4 py-2 rounded-sm border border-border text-sm font-medium">
+                      {skill}
+                    </span>
                   ))}
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Core Competencies */}
-          <div className="bg-secondary p-8 rounded-sm border border-border">
-            <h3 className="text-lg font-bold mb-6 font-mono text-cyan-400">Core Competencies</h3>
-            <div className="grid md:grid-cols-2 gap-4">
+          {/* Core Competencies Grid */}
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold mb-8">Core Competencies</h3>
+            <div className="grid md:grid-cols-3 gap-4">
               {coreCompetencies.map((competency, i) => (
-                <div key={i} className="flex gap-3">
-                  <span className="text-cyan-400 font-bold text-lg leading-none">→</span>
-                  <span className="text-muted-foreground text-sm">{competency}</span>
+                <div key={i} className="p-4 border border-border rounded-sm bg-card/50 text-sm text-muted-foreground hover:border-cyan-400/50 transition-colors">
+                  {competency}
                 </div>
               ))}
             </div>
@@ -570,104 +593,57 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-secondary border-t border-border">
         <div className="container">
-          <h2 className="text-3xl font-bold mb-12">Get In Touch</h2>
-          
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <p className="text-muted-foreground mb-8 leading-relaxed">
-                I'm always interested in discussing cybersecurity challenges, threat intelligence, and innovative defense strategies. Feel free to reach out for collaboration opportunities or to discuss your security needs.
-              </p>
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-6">Get In Touch</h2>
+            <p className="text-muted-foreground mb-12 text-lg">
+              Interested in collaborating or have a security-related inquiry? Feel free to reach out through any of the channels below.
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <a href="mailto:a01143439039@gmail.com" className="card-minimal flex flex-col items-center gap-4 group">
+                <div className="w-12 h-12 rounded-full bg-cyan-400/10 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-400 group-hover:text-white transition-all">
+                  <Mail size={24} />
+                </div>
+                <span className="font-bold">Email</span>
+                <span className="text-sm text-muted-foreground">a01143439039@gmail.com</span>
+              </a>
               
-              <div className="space-y-6">
-                <div className="flex gap-4 items-start">
-                  <Mail className="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold text-foreground">Email</p>
-                    <a href="mailto:a01143439039@gmail.com" className="text-cyan-400 hover:text-cyan-300 break-all">
-                      a01143439039@gmail.com
-                    </a>
-                  </div>
+              <a href="tel:+201143439039" className="card-minimal flex flex-col items-center gap-4 group">
+                <div className="w-12 h-12 rounded-full bg-cyan-400/10 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-400 group-hover:text-white transition-all">
+                  <Phone size={24} />
                 </div>
-
-                <div className="flex gap-4 items-start">
-                  <Phone className="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold text-foreground">WhatsApp</p>
-                    <a href="https://wa.me/201143439039" className="text-cyan-400 hover:text-cyan-300">
-                      +20 114 343 9039
-                    </a>
-                  </div>
+                <span className="font-bold">Phone</span>
+                <span className="text-sm text-muted-foreground">+20 114 343 9039</span>
+              </a>
+              
+              <a href="https://linkedin.com/in/alaa-atef-941352396" target="_blank" rel="noopener noreferrer" className="card-minimal flex flex-col items-center gap-4 group">
+                <div className="w-12 h-12 rounded-full bg-cyan-400/10 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-400 group-hover:text-white transition-all">
+                  <Linkedin size={24} />
                 </div>
-
-                <div className="flex gap-4 items-start">
-                  <MapPin className="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold text-foreground">Location</p>
-                    <p className="text-muted-foreground">Cairo, Egypt</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4 items-start">
-                  <Linkedin className="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold text-foreground">LinkedIn</p>
-                    <a 
-                      href="https://www.linkedin.com/in/alaa-atef-941352396" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-cyan-400 hover:text-cyan-300 flex items-center gap-2"
-                    >
-                      Connect with me <ExternalLink className="w-4 h-4" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="card-minimal">
-              <h3 className="text-lg font-bold mb-6 font-mono text-cyan-400">Quick Facts</h3>
-              <div className="space-y-4">
-                <div>
-                  <p className="text-sm font-semibold text-foreground mb-1">Current Role</p>
-                  <p className="text-muted-foreground">SOC Analyst L1 at THE WHITEGUARD</p>
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground mb-1">Specialization</p>
-                  <p className="text-muted-foreground">Threat Detection, Incident Response, Digital Forensics</p>
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground mb-1">Education</p>
-                  <p className="text-muted-foreground">B.Sc. Computer Science (Arab Open University)</p>
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground mb-1">Certifications</p>
-                  <p className="text-muted-foreground">CEH, CCNA, SANS Training (SEC450, FOR500, SEC504)</p>
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground mb-1">Languages</p>
-                  <p className="text-muted-foreground">Arabic (Native), English (Fluent)</p>
-                </div>
-              </div>
+                <span className="font-bold">LinkedIn</span>
+                <span className="text-sm text-muted-foreground">alaa-atef-941352396</span>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-8 bg-secondary">
-        <div className="container">
-          <div className="flex justify-between items-center">
-            <p className="text-muted-foreground text-sm">
-              © 2025 Alaa Atef. All rights reserved.
-            </p>
-            <div className="flex gap-6">
-              <a href="https://www.linkedin.com/in/alaa-atef-941352396" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-cyan-400 transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="mailto:a01143439039@gmail.com" className="text-muted-foreground hover:text-cyan-400 transition-colors">
-                <Mail className="w-5 h-5" />
-              </a>
-            </div>
+      <footer className="py-12 border-t border-border bg-background">
+        <div className="container flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-xl font-bold font-mono text-cyan-400">
+            ALAA ATEF
+          </div>
+          <div className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} Alaa Atef Elsayed Ahmed. All rights reserved.
+          </div>
+          <div className="flex gap-6">
+            <a href="#" className="text-muted-foreground hover:text-cyan-400 transition-colors">
+              <Linkedin size={20} />
+            </a>
+            <a href="mailto:a01143439039@gmail.com" className="text-muted-foreground hover:text-cyan-400 transition-colors">
+              <Mail size={20} />
+            </a>
           </div>
         </div>
       </footer>
