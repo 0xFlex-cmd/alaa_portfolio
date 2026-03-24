@@ -1,7 +1,7 @@
 import { Mail, Phone, MapPin, Linkedin, ExternalLink, Download, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Shield3D } from '@/components/Shield3D';
+import { Profile3D } from '@/components/Profile3D';
 import { useState, useEffect } from 'react';
 
 /**
@@ -334,34 +334,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right side - Protruding Image with Effects */}
-          <div className="relative flex justify-center items-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            {/* Animated background circles */}
-            <div className="absolute w-[450px] h-[450px] border border-cyan-400/20 rounded-full animate-spin-slow"></div>
-            <div className="absolute w-[500px] h-[500px] border border-cyan-400/10 rounded-full animate-spin-slow" style={{ animationDirection: 'reverse', animationDuration: '20s' }}></div>
-            
-            {/* Glow effect */}
-            <div className="absolute w-80 h-80 bg-cyan-400/20 rounded-full blur-[100px]"></div>
-
-            {/* Image Container with Protruding Effect */}
-            <div className="relative w-80 h-80 md:w-[450px] md:h-[450px]">
-              {/* The Circle Frame */}
-              <div className="absolute inset-0 rounded-full border-8 border-cyan-400/30 overflow-hidden shadow-[0_0_50px_rgba(0,217,255,0.3)]">
-                {/* Background inside circle */}
-                <div className="absolute inset-0 bg-gradient-to-b from-cyan-900/20 to-transparent"></div>
-              </div>
-              
-              {/* The Image (Protruding) */}
-              <img 
-                src="/alaa_portfolio/profile_new.jpg" 
-                alt="Alaa Atef" 
-                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[110%] max-w-none h-auto object-cover z-20 drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
-                style={{ 
-                  maskImage: 'radial-gradient(circle at center 60%, black 60%, transparent 100%)',
-                  WebkitMaskImage: 'radial-gradient(circle at center 60%, black 60%, transparent 100%)'
-                }}
-              />
-            </div>
+          {/* Right side - 3D Profile Image */}
+          <div className="hidden md:block h-[600px] animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+            <Profile3D />
           </div>
         </div>
 
