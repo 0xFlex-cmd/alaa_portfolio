@@ -296,9 +296,9 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden border-b border-border">
-        <div className="grid md:grid-cols-2 gap-12 container py-24 md:py-32 items-center">
+      {/* Hero Section - Full Screen */}
+      <section className="relative overflow-hidden min-h-[calc(100vh-64px)] flex items-center justify-center border-b border-border">
+        <div className="grid md:grid-cols-2 gap-12 container items-center py-12 md:py-0">
           {/* Left side - Text */}
           <div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up">
@@ -328,19 +328,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right side - Profile Image */}
-          <div className="hidden md:flex justify-center items-center relative">
-            <div className="relative w-80 h-80 md:w-96 md:h-96">
-              {/* Decorative background circle similar to Khaled Sakr's style */}
-              <div className="absolute inset-0 bg-cyan-400/10 rounded-full animate-pulse"></div>
-              <div className="absolute inset-4 border-2 border-dashed border-cyan-400/30 rounded-full animate-spin-slow"></div>
-              
-              <img 
-                src="/alaa_portfolio/profile.png" 
-                alt="Alaa Atef" 
-                className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_20px_rgba(34,211,238,0.3)]"
-              />
-            </div>
+          {/* Right side - 3D Shield */}
+          <div className="hidden md:block h-96 bg-card rounded-sm border border-border p-4">
+            <Shield3D />
           </div>
         </div>
       </section>
