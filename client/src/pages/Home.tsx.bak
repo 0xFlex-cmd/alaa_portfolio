@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react';
  * - Monochromatic dark background with neon cyan accents
  * - Extreme clarity through whitespace
  * - Technical, professional aesthetic
- * - 3D Profile Image with Full Screen Hero Section
+ * - 3D Shield visualization for visual appeal
  */
 
 interface SkillCategory {
@@ -296,67 +296,50 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section - Full Screen */}
-      <section className="relative overflow-hidden min-h-[calc(100vh-64px)] flex items-center justify-center border-b border-border">
-        {/* Background gradient blobs */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-400/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-400/5 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div className="grid md:grid-cols-2 gap-8 md:gap-16 container items-center relative z-10 py-12 md:py-0">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden border-b border-border">
+        <div className="grid md:grid-cols-2 gap-12 container py-24 md:py-32 items-center">
           {/* Left side - Text */}
           <div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up">
               Alaa Atef Elsayed Ahmed
             </h1>
-            <h2 className="text-3xl md:text-5xl font-bold text-cyan-400 mb-8 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+            <h2 className="text-3xl md:text-4xl font-bold text-cyan-400 mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
               Cybersecurity SOC Analyst
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               Hands-on cybersecurity professional specializing in threat intelligence, incident response, and digital forensics. Currently working at THE WHITEGUARD with expertise in SIEM operations, detection engineering, and proactive defense strategies.
             </p>
             <div className="flex gap-4 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
               <Button 
-                className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-6 text-lg"
+                className="bg-cyan-600 hover:bg-cyan-700 text-white"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Get In Touch
               </Button>
               <Button 
                 variant="outline"
-                className="border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 px-8 py-6 text-lg"
+                className="border-cyan-400 text-cyan-400 hover:bg-cyan-400/10"
                 onClick={() => setShowCVModal(true)}
               >
-                <Download className="w-5 h-5 mr-2" />
+                <Download className="w-4 h-4 mr-2" />
                 View CV
               </Button>
             </div>
           </div>
 
-          {/* Right side - Profile Image - Enlarged and Protruding */}
-          <div className="hidden md:flex justify-center items-center relative h-full min-h-96">
-            <div className="relative w-full max-w-md">
-              {/* Outer decorative circles */}
-              <div className="absolute -inset-8 rounded-full border-2 border-cyan-400/20 animate-pulse"></div>
-              <div className="absolute -inset-4 rounded-full border border-cyan-400/30 animate-spin-slow"></div>
+          {/* Right side - Profile Image */}
+          <div className="hidden md:flex justify-center items-center relative">
+            <div className="relative w-80 h-80 md:w-96 md:h-96">
+              {/* Decorative background circle similar to Khaled Sakr's style */}
+              <div className="absolute inset-0 bg-cyan-400/10 rounded-full animate-pulse"></div>
+              <div className="absolute inset-4 border-2 border-dashed border-cyan-400/30 rounded-full animate-spin-slow"></div>
               
-              {/* Main container with shadow for 3D effect */}
-              <div className="relative aspect-square rounded-full overflow-hidden shadow-2xl shadow-cyan-400/20">
-                {/* Background glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-transparent rounded-full"></div>
-                
-                {/* Profile image - protruding effect */}
-                <img 
-                  src="/alaa_portfolio/profile.png" 
-                  alt="Alaa Atef" 
-                  className="relative z-10 w-full h-full object-cover drop-shadow-[0_0_30px_rgba(34,211,238,0.4)] scale-110 origin-center"
-                />
-              </div>
-              
-              {/* Decorative elements around image */}
-              <div className="absolute -top-4 -right-4 w-12 h-12 border-2 border-cyan-400/40 rounded-lg animate-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-12 h-12 border-2 border-cyan-400/40 rounded-lg animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+              <img 
+                src="/alaa_portfolio/profile.png" 
+                alt="Alaa Atef" 
+                className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_20px_rgba(34,211,238,0.3)]"
+              />
             </div>
           </div>
         </div>
@@ -459,84 +442,118 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section id="skills" className="py-20 bg-secondary border-t border-border">
-        <div className="container">
-          <h2 className="text-3xl font-bold mb-12">Technical Skills</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {skillCategories.map((category, idx) => (
-              <div key={idx} className="card-minimal">
-                <h3 className="font-bold text-cyan-400 mb-4 font-mono text-sm">{category.title}</h3>
-                <ul className="space-y-2">
-                  {category.skills.map((skill, i) => (
-                    <li key={i} className="text-muted-foreground text-sm flex items-start gap-2">
-                      <span className="text-cyan-400 mt-1">▪</span>
-                      <span>{skill}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Certifications Section */}
-      <section className="py-20 border-t border-border">
-        <div className="container">
-          <h2 className="text-3xl font-bold mb-12">Certifications & Training</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {certifications.map((cert, i) => (
-              <div key={i} className="card-minimal">
-                <h3 className="font-bold mb-2">{cert.name}</h3>
-                <p className="text-cyan-400 text-sm font-mono mb-1">{cert.issuer}</p>
-                <p className="text-muted-foreground text-sm">{cert.date}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Education Section */}
       <section className="py-20 bg-secondary border-t border-border">
         <div className="container">
-          <h2 className="text-3xl font-bold mb-12">Education</h2>
-          <div className="card-minimal">
-            <div className="flex justify-between items-start mb-4">
-              <div>
-                <h3 className="text-2xl font-bold">{education.degree}</h3>
-                <p className="text-cyan-400 font-mono text-sm mt-1">{education.institution}</p>
+          <h2 className="text-3xl font-bold mb-12">Education & Certifications</h2>
+          
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* University */}
+            <div className="card-minimal">
+              <h3 className="text-xl font-bold mb-2">{education.institution}</h3>
+              <p className="text-cyan-400 font-mono text-sm mb-4">{education.degree} in {education.field}</p>
+              <div className="space-y-2 text-sm text-muted-foreground mb-4">
+                <p><span className="font-semibold">Location:</span> {education.location}</p>
+                <p><span className="font-semibold">GPA:</span> {education.gpa}</p>
+                <p><span className="font-semibold">Status:</span> {education.status}</p>
               </div>
-              <span className="text-muted-foreground text-sm font-mono">{education.graduationDate}</span>
+              <div>
+                <p className="font-semibold text-sm mb-3">Major Courses:</p>
+                <div className="flex flex-wrap gap-2">
+                  {education.courses.map((course, i) => (
+                    <span key={i} className="text-xs bg-cyan-400/10 text-cyan-400 px-3 py-1 rounded-sm border border-cyan-400/30">
+                      {course}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
-            <p className="text-muted-foreground text-sm mb-4">{education.field} • {education.location}</p>
-            <p className="text-muted-foreground text-sm mb-6"><strong>GPA:</strong> {education.gpa}</p>
-            <p className="text-muted-foreground text-sm mb-6"><strong>Status:</strong> {education.status}</p>
+
+            {/* Certifications */}
             <div>
-              <p className="text-sm font-bold text-cyan-400 mb-3">Major Courses:</p>
-              <div className="flex flex-wrap gap-2">
-                {education.courses.map((course, i) => (
-                  <span key={i} className="px-3 py-1 bg-cyan-400/10 border border-cyan-400/20 rounded text-sm text-muted-foreground">
-                    {course}
-                  </span>
+              <h3 className="text-xl font-bold mb-6">Certifications & Training</h3>
+              <div className="space-y-4">
+                {certifications.map((cert, i) => (
+                  <div key={i} className="pb-4 border-b border-border last:border-0">
+                    <p className="font-semibold text-foreground">{cert.name}</p>
+                    <p className="text-sm text-cyan-400 font-mono">{cert.issuer}</p>
+                    <p className="text-xs text-muted-foreground mt-1">{cert.date}</p>
+                  </div>
                 ))}
               </div>
             </div>
           </div>
+
+          {/* SANS Training Details */}
+          <div className="card-minimal">
+            <h3 className="text-lg font-bold mb-4 font-mono text-cyan-400">SANS Training Program (KAYFA)</h3>
+            <p className="text-sm text-muted-foreground mb-4">Imperious University of America | July 2024</p>
+            <div className="grid md:grid-cols-2 gap-6">
+              {[
+                'Network & Security Fundamentals',
+                'Windows Active Directory',
+                'Linux Fundamentals',
+                'SOC Analysis & Management',
+                'SOC Monitoring – Splunk',
+                'SOC Monitoring – QRadar',
+                'SOC Case Studies & Tools',
+                'Incident Handling',
+                'Intro to Threat Hunting',
+                'Intro to Digital Forensics'
+              ].map((item, i) => (
+                <div key={i} className="flex gap-2">
+                  <span className="text-cyan-400 font-bold">✓</span>
+                  <span className="text-sm text-muted-foreground">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Core Competencies Section */}
-      <section className="py-20 border-t border-border">
+      {/* Skills Section */}
+      <section id="skills" className="py-20 border-t border-border">
         <div className="container">
-          <h2 className="text-3xl font-bold mb-12">Core Competencies</h2>
-          <div className="grid md:grid-cols-2 gap-4">
-            {coreCompetencies.map((competency, i) => (
-              <div key={i} className="flex gap-3 p-4 bg-card border border-border rounded-sm hover:border-cyan-400/50 transition-colors">
-                <span className="text-cyan-400 font-bold flex-shrink-0">✓</span>
-                <span className="text-muted-foreground">{competency}</span>
+          <h2 className="text-3xl font-bold mb-12">Technical Skills & Tools</h2>
+          
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {skillCategories.map((category, catIndex) => (
+              <div key={catIndex} className="card-minimal">
+                <h3 className="font-mono text-cyan-400 font-bold text-sm mb-6">{category.title}</h3>
+                <div className="space-y-4">
+                  {category.skills.map((skill, skillIndex) => (
+                    <div key={skillIndex}>
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-sm font-medium text-foreground">{skill}</span>
+                        <span className="text-xs text-muted-foreground">Expert</span>
+                      </div>
+                      <div className="skill-bar">
+                        <div 
+                          className="skill-bar-fill"
+                          style={{
+                            width: visibleSkills.includes(catIndex * 3 + skillIndex) ? '90%' : '0%',
+                            transitionDelay: `${(catIndex * 3 + skillIndex) * 100}ms`
+                          }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
+          </div>
+
+          {/* Core Competencies */}
+          <div className="bg-secondary p-8 rounded-sm border border-border">
+            <h3 className="text-lg font-bold mb-6 font-mono text-cyan-400">Core Competencies</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              {coreCompetencies.map((competency, i) => (
+                <div key={i} className="flex gap-3">
+                  <span className="text-cyan-400 font-bold text-lg leading-none">→</span>
+                  <span className="text-muted-foreground text-sm">{competency}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -545,37 +562,104 @@ export default function Home() {
       <section id="contact" className="py-20 bg-secondary border-t border-border">
         <div className="container">
           <h2 className="text-3xl font-bold mb-12">Get In Touch</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="card-minimal text-center">
-              <Mail className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
-              <h3 className="font-bold mb-2">Email</h3>
-              <a href="mailto:a01143439039@gmail.com" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-                a01143439039@gmail.com
-              </a>
+          
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <p className="text-muted-foreground mb-8 leading-relaxed">
+                I'm always interested in discussing cybersecurity challenges, threat intelligence, and innovative defense strategies. Feel free to reach out for collaboration opportunities or to discuss your security needs.
+              </p>
+              
+              <div className="space-y-6">
+                <div className="flex gap-4 items-start">
+                  <Mail className="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-foreground">Email</p>
+                    <a href="mailto:a01143439039@gmail.com" className="text-cyan-400 hover:text-cyan-300 break-all">
+                      a01143439039@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 items-start">
+                  <Phone className="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-foreground">WhatsApp</p>
+                    <a href="https://wa.me/201143439039" className="text-cyan-400 hover:text-cyan-300">
+                      +20 114 343 9039
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 items-start">
+                  <MapPin className="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-foreground">Location</p>
+                    <p className="text-muted-foreground">Cairo, Egypt</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 items-start">
+                  <Linkedin className="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-foreground">LinkedIn</p>
+                    <a 
+                      href="https://www.linkedin.com/in/alaa-atef-941352396" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cyan-400 hover:text-cyan-300 flex items-center gap-2"
+                    >
+                      Connect with me <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="card-minimal text-center">
-              <Phone className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
-              <h3 className="font-bold mb-2">Phone</h3>
-              <a href="tel:+201143439039" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-                +20 114 343 9039
-              </a>
-            </div>
-            <div className="card-minimal text-center">
-              <Linkedin className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
-              <h3 className="font-bold mb-2">LinkedIn</h3>
-              <a href="https://linkedin.com/in/alaa-atef-941352396" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-                Connect with me
-              </a>
+
+            <div className="card-minimal">
+              <h3 className="text-lg font-bold mb-6 font-mono text-cyan-400">Quick Facts</h3>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-sm font-semibold text-foreground mb-1">Current Role</p>
+                  <p className="text-muted-foreground">SOC Analyst L1 at THE WHITEGUARD</p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground mb-1">Specialization</p>
+                  <p className="text-muted-foreground">Threat Detection, Incident Response, Digital Forensics</p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground mb-1">Education</p>
+                  <p className="text-muted-foreground">B.Sc. Computer Science (Arab Open University)</p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground mb-1">Certifications</p>
+                  <p className="text-muted-foreground">CEH, CCNA, SANS Training (SEC450, FOR500, SEC504)</p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground mb-1">Languages</p>
+                  <p className="text-muted-foreground">Arabic (Native), English (Fluent)</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 border-t border-border bg-card">
-        <div className="container text-center text-muted-foreground text-sm">
-          <p>© 2026 Alaa Atef Elsayed Ahmed. All rights reserved.</p>
-          <p className="mt-2">Cybersecurity SOC Analyst | Threat Detection & Incident Response</p>
+      <footer className="border-t border-border py-8 bg-secondary">
+        <div className="container">
+          <div className="flex justify-between items-center">
+            <p className="text-muted-foreground text-sm">
+              © 2025 Alaa Atef. All rights reserved.
+            </p>
+            <div className="flex gap-6">
+              <a href="https://www.linkedin.com/in/alaa-atef-941352396" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-cyan-400 transition-colors">
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a href="mailto:a01143439039@gmail.com" className="text-muted-foreground hover:text-cyan-400 transition-colors">
+                <Mail className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
